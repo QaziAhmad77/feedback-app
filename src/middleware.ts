@@ -16,6 +16,11 @@ export const config = {
 // middleware is the function that gets executed on every request to the matched routes.
 
 export async function middleware(request: NextRequest) {
+  // getToken(Middleware / Server - Side);
+  // Where It’s Used: In middleware functions or API routes on the server.
+  // Purpose: Checks for an active session token directly on the server before any page or API data is sent to the client. This is ideal for protecting routes or handling redirects without relying on a client-side check.
+  // How It Works: getToken extracts the session token from the request headers or cookies on the server side, enabling you to determine user authentication without involving the client.
+  // When to Use: In cases like this middleware, where you want to handle redirects or control access to routes server-side. This ensures unauthorized users don’t even reach the client-side components of protected pages.
   const token = await getToken({ req: request });
   const url = request.nextUrl;
 

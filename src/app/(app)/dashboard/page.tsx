@@ -27,6 +27,7 @@ function UserDashboard() {
     setMessages(messages.filter((message) => message._id !== messageId));
   };
 
+  // For checking the session and user data on the client side in a Next.js application, you can use the useSession hook provided by NextAuth. This hook allows you to easily access the session information, including user data, directly in your React components.s
   const { data: session } = useSession();
 
   const form = useForm({

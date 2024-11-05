@@ -30,6 +30,8 @@ export default function SignInForm() {
   });
 
   const { toast } = useToast();
+// z.infer takes the Zod schema and automatically generates a corresponding TypeScript type that matches the structure defined in the schema.
+// This helps keep the types in sync with the validation rules without manually writing TypeScript interfaces or types.
   const onSubmit = async (data: z.infer<typeof signInSchema>) => {
     const result = await signIn('credentials', {
       redirect: false,
